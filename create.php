@@ -4,36 +4,35 @@ include_once 'includes/header.inc.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
-
     $subtitle = $_POST['subtitle'];
-
     $content1 = $_POST['content1'];
+    $content2 = isset($_POST['content2']) ? $_POST['content2'] : null;
 
-    if (isset($_POST['content2'])) {
-        $content2 = $_POST['content2'];
-    }
-
+    // Handling the first image (required)
     $images_main = '';
-    if ($_FILES['image1']['name']) {
+    if (!empty($_FILES['image1']['name'])) {
         $images_main = basename($_FILES['image1']['name']);
         move_uploaded_file($_FILES['image1']['tmp_name'], "uploads/" . $images_main);
     }
 
-    if (isset($_FILES['image2'])) {
-        $images_optional = '';
-        if ($_FILES['image2']['name']) {
-            $images_optional = basename($_FILES['image2']['name']);
-            move_uploaded_file($_FILES['image2']['tmp_name'], "uploads/" . $image_optional);
-        }
+    // Handling the optional second image
+    $images_optional = null;
+    if (!empty($_FILES['image2']['name'])) {
+        $images_optional = basename($_FILES['image2']['name']);
+        move_uploaded_file($_FILES['image2']['tmp_name'], "uploads/" . $images_optional);
     }
 
+    // Single INSERT query
+    $stmt = $db->prepare("INSERT INTO pages (title, subtitle, content1, content2, image1, image2) 
+                          VALUES (:title, :subtitle, :content1, :content2, :image1, :image2)");
 
-
-    $stmt = $db->prepare("INSERT INTO pages (title, subtitle, content1, image1) VALUES (:title, :subtitle, :content1, :image1)");
     $stmt->bindValue(':title', $title, SQLITE3_TEXT);
     $stmt->bindValue(':subtitle', $subtitle, SQLITE3_TEXT);
     $stmt->bindValue(':content1', $content1, SQLITE3_TEXT);
+    $stmt->bindValue(':content2', $content2, SQLITE3_TEXT); // NULL if not provided
     $stmt->bindValue(':image1', $images_main, SQLITE3_TEXT);
+    $stmt->bindValue(':image2', $images_optional, SQLITE3_TEXT); // NULL if not provided
+
     $stmt->execute();
 
     header("Location: index.php");
