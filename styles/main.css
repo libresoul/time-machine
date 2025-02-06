@@ -602,6 +602,9 @@
   .isolation-auto {
     isolation: auto;
   }
+  .z-5 {
+    z-index: 5;
+  }
   .z-40 {
     z-index: 40;
   }
@@ -2479,6 +2482,13 @@
         --tw-scale-y: 125%;
         --tw-scale-z: 125%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:cursor-pointer {
+    &:hover {
+      @media (hover: hover) {
+        cursor: pointer;
       }
     }
   }
