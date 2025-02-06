@@ -26,7 +26,7 @@ include_once 'includes/header.inc.php';
             </ul>
         </div>
         <hr class="md:hidden mt-2">
-        <div class="text-center">
+        <div class="text-center md:mr-4">
             <h4 class="text-3xl m-4 font-bold">Our Approch</h4>
             <p class="font-['Spectral']">We focused on delivering an intuitive, visually appealing, and informative experience. This project is not just an assignment—it’s a step toward building interactive and educational web applications.</p>
         </div>
