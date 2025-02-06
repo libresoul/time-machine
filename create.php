@@ -41,40 +41,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-    <h1>Create New Page</h1>
-
+<div class="flex md:flex-row sm:flex-col justify-center items-center sm:gap-10 md:gap-40">
+    <div class="font-['MedievalSharp'] text-5xl sm:mt-10 md:mt-0 bg-black p-10 rounded hover:scale-125 transition-all duration-500">
+        <h1>Add new page</h1>
+    </div>
     <form method="POST" action="create.php" enctype="multipart/form-data">
-        <div>
+        <div class="mt-4">
             <label for="title">Title</label>
-            <input type="text" name="title" required>
+            <input type="text" name="title" class="block w-full text-sm bg-slate-600 rounded text-center" required>
         </div>
-        <div>
+        <div class="mt-4">
             <label for="subtitle">Subtitle</label>
-            <input type="text" name="subtitle" required>
+            <textarea rows="2" name="subtitle" class="block w-full text-sm bg-slate-600 rounded text-center" required></textarea>
         </div>
-        <div>
+        <div class="mt-4">
             <label for="content1">Content</label>
-            <textarea name="content1" required></textarea>
-
+            <textarea name="content1" rows="6" class="block w-full text-sm bg-slate-600 rounded" required></textarea>
         </div>
-        <div>
+        <div class="mt-4">
             <label for="image1">Image</label>
-            <input type="file" name="image1">
+            <input type="file" name="image1" class="block w-full text-sm text-white rounded-lg cursor-pointer bg-slate-600 border border-gray-300 file:bg-slate-950 file:text-slate-100 file:rounded file:p-2 file:border-0">
         </div>
-        <div>
+        <div class="mt-4">
             <label for="content2">Content (Optional)</label>
-            <textarea name="content2"></textarea>
+            <textarea name="content2" rows="6" class="block w-full text-sm bg-slate-600 rounded"></textarea>
         </div>
-        <div>
+        <div class="mt-4">
             <label for="image2">Image (Optional)</label>
-            <input type="file" name="image2">
+            <input type="file" name="image2" class="block w-full text-sm text-white rounded-lg cursor-pointer bg-slate-600 border border-gray-300 file:bg-slate-950 file:text-slate-100 file:rounded file:p-2 file:border-0">
         </div>
-        <div>
-            <button type="submit">Create Page</button>
+        <div class="flex justify-center items-center m-4">
+            <button type="submit" class="hover:scale-125 transition-all duration-500">
+                <div class="bg-slate-950 mt-4 p-2 rounded text-2xl">Create Page</div>
+            </button>
         </div>
     </form>
+    <div class="font-['MedievalSharp'] text-3xl sm:mb-10 md:mb-0 hover:scale-125 transition-all duration-500">
+        <a href="index.php"><img src="images/static/left_arrow.svg" class="w-32 h-32 object-cover"></a>
+    </div>
 
-    <a href="index.php">Back to Home</a>
+
+</div>
 </body>
 
 </html>
