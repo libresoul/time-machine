@@ -10,6 +10,9 @@ $result = $db->query("SELECT id, title FROM pages");
     </div>
 <?php endwhile; ?>
 
+<?php
+include_once 'includes/footer.php';
+?>
 </body>
 
 </html>

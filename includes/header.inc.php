@@ -29,7 +29,7 @@
                     <li><a href="about.php" class="block text-xl md:hover:bg-transparent md:hover:scale-125 transition-all duration-500">About</a></li>
                 </ul>
             </div>
-            <div class="hidden md:flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse bg-slate-100 p-2 rounded text-slate-950 font-bold hover:scale-125 transition-all duration-500">
+            <div class="hidden md:flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse bg-slate-100 p-2 rounded text-slate-950 font-bold hover:scale-125 transition-all duration-500 hover:cursor-pointer">
                 <a href="create.php"><button type="button">Add New Page</button></a>
             </div>
         </div>

@@ -78,9 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="font-['MedievalSharp'] text-3xl sm:mb-10 md:mb-0 hover:scale-125 transition-all duration-500">
         <a href="index.php"><img src="images/static/left_arrow.svg" class="w-32 h-32 object-cover"></a>
     </div>
-
-
 </div>
+<?php
+include_once 'includes/footer.php';
+?>
 </body>
 
 </html>

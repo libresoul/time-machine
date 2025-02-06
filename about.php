@@ -228,6 +228,9 @@ include_once 'includes/header.inc.php';
         </a>
     </div>
 </div>
+<?php
+include_once 'includes/footer.php';
+?>
 </body>
 
 </html>
