@@ -30,6 +30,9 @@ $result = $db->querySingle("SELECT * FROM pages WHERE id = $id", true);
         <p class="text-justify"><?= nl2br(htmlspecialchars($result['content2'])) ?></p>
     </div>
 </div>
+<?php
+include_once 'includes/footer.php';
+?>
 </body>
 
 </html>
